@@ -20,7 +20,7 @@ do {
 
 do {
     quantityOperand = +prompt('Сколько хотите использовать чисел ? Введите число от 2 до 4');
- } while (isNaN(quantityOperand) || quantityOperand <= 0 || quantityOperand >= 5);
+ } while (isNaN(quantityOperand) || quantityOperand <= 1 || quantityOperand >= 5);
 
 for (let i = 1; i <= quantityOperand; i++) {
 		do {
