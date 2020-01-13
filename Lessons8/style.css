@@ -1,0 +1,42 @@
+body {
+    margin: 10px;
+}
+ ul {
+    margin: 20px;
+ }
+
+ li {
+     font-size: 30px;
+     color: black;
+     padding-bottom: 10px;
+     background: yellow;
+ }
+
+li.green {
+    font-size: 20px;
+    background: green;
+    color: white;
+ }
+
+input {
+    display: block;
+    font-size: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+    margin: 20px;
+    padding-left: 6px;
+    width: 400px;
+}
+
+
+
+
+#AddToList {
+    border: 2px solid;
+    border-radius: 6px;
+    margin: 20px;
+    padding: 5px 7px;
+    background-color: aqua;
+    cursor: pointer;
+}
+
