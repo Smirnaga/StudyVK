@@ -5,7 +5,7 @@ let addInfoElement = document.getElementById('addInfo');
 let nameElement = document.getElementById('name');
 let surnameElement = document.getElementById('surname');
 let phoneNumberElement = document.getElementById('phoneNumber');
-let deleteBtnElement = document.querySelectorAll('span');
+
 
 
 addInfoElement.addEventListener('click', onBtnClick);
@@ -22,6 +22,7 @@ addInfoElement.addEventListener('click', addToTable);
 
 function addToTable(e) {
     e.preventDefault();
+    validateForm();
     addRow();
     resetForm();
 }
@@ -66,3 +67,40 @@ function resetForm() {
 }
 
 
+ function validateForm () {
+    if ( nameElement.value == "" || surnameElement.value == "" || phoneNumberElement.value == "")
+    
+    {
+        document.querySelector('.invalid').innerHTML = `Вы не ввели данные`;
+    } else document.querySelector('.invalid').innerHTML = ``;
+    return false;
+};
+
+
+
+
+
+countFormElement.addEventListener('focus', onContactFormFocus, true);
+countFormElement.addEventListener('blur', onContactFormBlur, true);
+
+function onContactFormBlur(e) {
+    if (!validate(e.target.value)) {
+        makeInvalid(e.target);
+    }
+}
+
+function onContactFormFocus(e) {
+    makeValid(e.target);
+}
+
+function makeInvalid(el) {
+    el.classList.add('error');
+}
+
+function makeValid(el) {
+    el.classList.remove('error');
+}
+
+function validate(value) {
+    return !!value.trim();
+}
