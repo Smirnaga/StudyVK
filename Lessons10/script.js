@@ -1,6 +1,5 @@
 'use strict';
-function createCalculator() {
-    let counts = 10;
+function createCalculator(counts) {
 
     return {
         add: (operandB) => counts + operandB,
@@ -11,7 +10,7 @@ function createCalculator() {
     };
 }
 
-const calculator = createCalculator();
+const calculator = createCalculator(10);
 
 alert(calculator.add(45));
 alert(calculator.sub(45));
