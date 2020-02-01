@@ -26,3 +26,17 @@ const students = [
 ];
 
 
+/*   Доп задание */
+let a = Student.prototype.averageMark = function () {
+    return this.marks.reduce((sum, current) => (sum + current)) / (this.marks.length);
+};
+let array = [].push (a);
+
+function AverageMarkGroup(array) {
+     this.array = array; 
+    
+    
+   this.averageMarkGroup = function () {
+        return array.reduce((sum, current) => (sum + current)) / (array.length);
+    };
+}

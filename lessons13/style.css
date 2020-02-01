@@ -1,0 +1,43 @@
+body {
+    margin: 10px;
+}
+
+.tab {
+    width: 1100px;
+}
+
+.tab-item {
+    display: inline-block;
+}
+
+
+.tab-item-title {
+    display: inline-block;
+    padding: 5px 10px;
+    width: 100px;
+    border: 1px solid palegreen;
+    border-radius: 3px;
+    cursor: pointer;
+    
+}
+
+.tab-content {
+    display: block;
+    margin-top: 10px;
+    width: 500px;
+    height: 80px;
+    border: 1px solid black;
+}
+
+.active  .tab-item-content {
+    display: block;
+    margin-top: 10px;
+    width: 500px;
+    height: 80px;
+    border: 1px solid black;
+}
+
+
+.tab-item-content {
+    display: none;
+}

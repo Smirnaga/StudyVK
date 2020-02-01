@@ -1,0 +1,47 @@
+body {
+    margin: 10px;
+}
+
+select {
+    border: black 1px solid;
+}
+
+span {
+    display:inline-block;;
+    font-size : 25px;
+    color: brown;
+    margin: 25px
+}
+
+.small {
+    display: inline-block;
+    font-size : 15px;
+    color: red;
+    margin: 55px;
+}
+
+.average {
+    display: inline-block;
+    font-size : 35px;
+    color: yellow;
+    margin: 25px;
+}
+
+.big {
+    display: inline-block;
+    font-size : 55px;
+    color: green;
+    margin: 25px;
+}
+
+.price {
+    font-size : 55px;
+    color: blue;
+    margin: 25px;
+}
+
+.calories {
+    font-size : 55px;
+    color: black;
+    margin: 25px;
+}
