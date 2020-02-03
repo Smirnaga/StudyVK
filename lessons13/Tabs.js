@@ -1,18 +1,4 @@
 'use strict';
-/* 
-document.getElementById('tabs').innerHTML = '';
-document.getElementById('tabs').innerHTML = `<div id="tab">
-<div class="active">tab 1</div>
-<div>tab 2</div>
-<div>tab 3</div>
-</div>
-<div id="content">
-            <div class="active">Content 1</div>
-            <div >Content 2</div>
-             <div>Content 3</div> 
-        </div>
-`; */
-
 
 class Tabs {
     constructor(el){
@@ -27,11 +13,12 @@ class Tabs {
     static TABS_CONTENT_CLASS = 'tab-content';
     static TABS_ITEM_CONTENT_CLASS = 'tab-item-content';
     static TABS_ACTIVE = 'active';
+    static BTNS = document.getElementsByTagName('button'); 
 
     init(){
         this.bindClasses();
-        this.createClasses()
         this.bindCallbacs();
+        this.bindButton();
     }
 
     bindClasses(){
@@ -41,12 +28,6 @@ class Tabs {
             itemEl.children[0].classList.add(Tabs.TABS_ITEM_TITLE_CLASS);
             itemEl.children[1].classList.add(Tabs.TABS_ITEM_CONTENT_CLASS); 
         });
-    }
-
-    createClasses(){
-        let title = document.getElementsByClassName('tab-item');
-        let tabTitle = document.getElementsByClassName('tab-item-title');
-        title.append(tabTitle);
     }
 
     bindCallbacs() {
@@ -91,4 +72,22 @@ class Tabs {
         const visibleElement = this.el.querySelectorAll('.' + Tabs.TABS_ACTIVE );
         Array.prototype.forEach.call(visibleElement, this.hide.bind(this));
     }
+
+     bindButton(){
+        document.getElementsByTagName('button').addEventListener('click', onBtnClick);
+    }
+
+    onBtnClick(e) {
+   
+        switch (e.target.id) {
+          case 'prev' : document.getElementsByClassName(TABS_ITEM_CLASS).previousElementSibling ;
+           break; 
+          case 'next' : document.getElementsByClassName(TABS_ITEM_CLASS).nextElementSibling ; 
+          break; 
+        }
+        
+      }
+
+
+
 }
