@@ -31,20 +31,6 @@ const smallHamburger = new Hamburger('50 ','20 ');
 const averageHamburger = new Hamburger('75 ','30 ');
 const bigHamburger = new Hamburger('100 ','40 '); 
 
-class Topping {
-    constructor(price,calories){
-        this.price = price;
-        this.calories = calories;
-    }
-}
-
-const cheese = new Topping('10','20');
-const salat = new Topping('20','5');
-const potato = new Topping('15','10');
-const flavoring = new Topping('15','0');
-const mayonnaise = new Topping('20','5');
-
-
 smallHamburgerElement.addEventListener('click', onClick) ;
 
 
@@ -75,48 +61,8 @@ function onClick2() {
 toppingElement.addEventListener('click', onClick3) ;
 
 function onClick3(e) {
-    console.log(Hamburger);
+    console.log(e);
     priceElement.innerHTML = `Price :  ${e.target.price} + ${e.target.price} `;
-    caloriesElement.innerHTML = `Calories :  ${bigHamburger.calories} + ${cheese.calories}`;
+    caloriesElement.innerHTML = `Calories :  ${e.target.calories} + ${e.target.calories}`;
 }
 
-/* 
-cheeseElement.addEventListener('click', onClick3) ;
-
-function onClick3() {
-    console.log(Hamburger);
-    priceElement.innerHTML = `Price :  ${bigHamburger.price} + ${cheese.price} `;
-    caloriesElement.innerHTML = `Calories :  ${bigHamburger.calories} + ${cheese.calories}`;
-}
-
-salatElement.addEventListener('click', onClick3) ;
-
-function onClick3() {
-    console.log(Hamburger);
-    priceElement.innerHTML = `Price :  ${bigHamburger.price} + ${cheese.price} `;
-    caloriesElement.innerHTML = `Calories :  ${bigHamburger.calories} + ${cheese.calories}`;
-}
-
-potatoElement.addEventListener('click', onClick3) ;
-
-function onClick3() {
-    console.log(Hamburger);
-    priceElement.innerHTML = `Price :  ${bigHamburger.price} + ${cheese.price} `;
-    caloriesElement.innerHTML = `Calories :  ${bigHamburger.calories} + ${cheese.calories}`;
-}
-
-flavoringElement.addEventListener('click', onClick3) ;
-
-function onClick3() {
-    console.log(Hamburger);
-    priceElement.innerHTML = `Price :  ${bigHamburger.price} + ${flavoring.price} `;
-    caloriesElement.innerHTML = `Calories :  ${bigHamburger.calories} + ${flavoring.calories}`;
-}
-
-cheeseElement.addEventListener('click', onClick3) ;
-
-function onClick3() {
-    console.log(Hamburger);
-    priceElement.innerHTML = `Price :  ${bigHamburger.price} + ${cheese.price} `;
-    caloriesElement.innerHTML = `Calories :  ${bigHamburger.calories} + ${cheese.calories}`;
-} */
