@@ -52,4 +52,14 @@ body {
     position: absolute;
     right: 780px;
     top: 15px;
+    cursor: pointer;
+}
+
+.buttons #prev {
+    cursor: pointer;
+    padding-right: 5px;
+}
+
+.buttons #next {
+    cursor: pointer;
 }

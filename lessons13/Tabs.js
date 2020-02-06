@@ -1,5 +1,7 @@
 'use strict';
 
+const titlesList = document.getElementById('tabs');
+
 class Tabs {
     constructor(el){
         this.el = el;
@@ -14,11 +16,13 @@ class Tabs {
     static TABS_ITEM_CONTENT_CLASS = 'tab-item-content';
     static TABS_ACTIVE = 'active';
     static BTNS = document.getElementsByTagName('button'); 
+    
+
 
     init(){
         this.bindClasses();
         this.bindCallbacs();
-        this.bindButton();
+        this.onBtnClick();
     }
 
     bindClasses(){
@@ -73,21 +77,15 @@ class Tabs {
         Array.prototype.forEach.call(visibleElement, this.hide.bind(this));
     }
 
-     bindButton(){
-        document.getElementsByTagName('button').addEventListener('click', onBtnClick);
+    onBtnClick() {
+        document.getElementById('prev').addEventListener('click', () => this.prev());;
+        document.getElementById('next').addEventListener('click', () => this.next()) ; 
+    
     }
 
-    onBtnClick(e) {
    
-        switch (e.target.id) {
-          case 'prev' : document.getElementsByClassName(TABS_ITEM_CLASS).previousElementSibling ;
-           break; 
-          case 'next' : document.getElementsByClassName(TABS_ITEM_CLASS).nextElementSibling ; 
-          break; 
-        }
-        
-      }
 
 
 
-}
+
+
