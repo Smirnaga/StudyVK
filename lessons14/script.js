@@ -3,9 +3,8 @@ let businessElement = document.getElementById('business');
 let listElement = document.getElementById('ToDoList');
 let AddToListElement = document.getElementById('AddToList');
 const TODOS_URL = 'https://jsonplaceholder.typicode.com/todos';
+const Li = document.getElementsByTagName('li');
 
-
-getTodos();
 
 function getTodos() {
     fetch(TODOS_URL)
@@ -26,15 +25,18 @@ function AddToList(json) {
     AddLi(task);
 }
 
- function AddLi(task) {
-     listElement.innerHTML += `<li>${task.title}</li>`;
-}; 
+ function AddLi(task) { 
+        if (task.completed == true) {
+            createItem(task); 
+            Li.classList.add("done");
+        } else {
+            createItem(task);
+        }
+    }
 
-/*  listElement.addEventListener ('click', function(e)  {
-    if (event.target.style.backgroundColor == 'yellow') event.target.classList.add("green");
+function createItem(task) {
+    listElement.innerHTML += `<li>${task.title}</li>`;
+}
 
-    else event.target.classList.toggle("green");
-    return false;
-});  */
 
 

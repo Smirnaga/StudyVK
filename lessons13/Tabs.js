@@ -1,7 +1,5 @@
 'use strict';
 
-const titlesList = document.getElementById('tabs');
-
 class Tabs {
     constructor(el){
         this.el = el;
@@ -16,6 +14,7 @@ class Tabs {
     static TABS_ITEM_CONTENT_CLASS = 'tab-item-content';
     static TABS_ACTIVE = 'active';
     static BTNS = document.getElementsByTagName('button'); 
+    static i = 0;
     
 
 
@@ -78,14 +77,13 @@ class Tabs {
     }
 
     onBtnClick() {
-        document.getElementById('prev').addEventListener('click', () => this.prev());;
-        document.getElementById('next').addEventListener('click', () => this.next()) ; 
+        document.getElementById('prev').addEventListener('click', () => prev());
+        document.getElementById('next').addEventListener('click', () => next()) ; 
     
     }
+    prev() {
+        
+    }
 
-   
-
-
-
-
+}
 
