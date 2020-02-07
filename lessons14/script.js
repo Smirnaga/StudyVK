@@ -31,7 +31,7 @@ function AddLi(task) {
         .replace('{{title}}', task.title)
         .replace('{{completeClass}}', task.completed ? 'done' : '');
 
-    // taskList.innerHTML = taskList.innerHTML + html;
+    
 
     const newTaskEl = htmlToElement(html);
     listElement.appendChild(newTaskEl);
