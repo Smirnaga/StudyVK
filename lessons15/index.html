@@ -10,18 +10,15 @@
     <script src="./script.js" async></script>
 </head>
 <body>
-    <ul id="ToDoList" type="square"  >
-    </ul>
-    <form id="countForm" >
-        <input type="text"  id="business">
-        <button id="AddToList" >Добавить дело</button>
-    </form>
-
-    <script type="text/template" id="taskItemTemplate">
-        <li class="task-item u-full-width {{completeClass}}" data-id="{{id}}">
-            {{title}}
-        </li>
-    </script>
-    
+    <div class="albums">
+        <h3>Список альбомов</h3>
+        <ul id="ToDoalbums" type="square"  >
+        </ul>
+    </div>
+    <div class="photos">
+        <h3>Список фотографий</h3>
+        <ul id="ToDophotos" type="square"  >
+        </ul>
+    </div>  
 </body>
 </html>

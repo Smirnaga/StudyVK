@@ -12,7 +12,7 @@ body {
      background: yellow;
  }
 
-li .done {
+.done {
     font-size: 20px;
     background: green;
     color: white;
