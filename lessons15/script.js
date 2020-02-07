@@ -34,6 +34,7 @@ function ShowPhotos (e){
 }
 
 function AddLiPhotos(list) {
+
     photosElement.innerHTML += `<li>${list.thumbnailUrl}</li>`;
 }
 
