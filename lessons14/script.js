@@ -27,6 +27,7 @@ function AddToList(json) {
 
 function AddLi(task) {
     const html = taskItemTemplate
+        .replace('{{id}}', task.id)
         .replace('{{title}}', task.title)
         .replace('{{completeClass}}', task.completed ? 'done' : '');
 
