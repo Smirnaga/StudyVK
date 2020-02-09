@@ -1,5 +1,5 @@
 'use strict';
-let hamburgerElement = document.getElementsByClassName('hamburger');
+let hamburgerElement = document.getElementById('hamburger');
 let toppingElement = document.getElementById('Topping');
 let priceElement = document.getElementById('price');
 let caloriesElement = document.getElementById('calories');
@@ -23,16 +23,12 @@ const toppings = {
 };
 
 
-hamburgerElement.addEventListener('click', onClick) ;
+hamburgerElement.addEventListener('click', onDivclick) ;
 
-function onClick(){
-    onDivclick();
-    onSelectChange();
-    renderPrice();
-}
 
 function onDivclick(e){
     selectedSize = e.target.dataId;
+    renderPrice();
 } 
 
 toppingElement.addEventListener('click', onSelectChange) ;
