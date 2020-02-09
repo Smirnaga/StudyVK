@@ -27,17 +27,25 @@ hamburgerElement.addEventListener('click', onDivclick) ;
 
 
 function onDivclick(e){
-    selectedSize = e.target.dataId;
-    renderPrice();
+    selectedSize = e.target.dataset.id;
+    console.log(selectedSize);
+    renderPricehamburger();
 } 
 
 toppingElement.addEventListener('click', onSelectChange) ;
 
 function onSelectChange(e){
     selectedTopping = e.target.value;
+    console.log(selectedTopping);
+    renderPricehamburgerWith();
 }
 
-function renderPrice(){
+function renderPricehamburger(){
+    priceElement.innerHTML = `Price : ${sizes[selectedSize].price }` ;
+    caloriesElement.innerHTML =`Calories :  ${sizes[selectedSize].calories}` ;
+}
+
+function renderPricehamburgerWith(){
     priceElement.innerHTML = `Price : ${sizes[selectedSize].price + toppings[selectedTopping].price}` ;
     caloriesElement.innerHTML =`Calories :  ${sizes[selectedSize].calories + toppings[selectedTopping].calories}` ;
 }
