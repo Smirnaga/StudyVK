@@ -81,9 +81,10 @@ class Tabs {
         document.getElementById('next').addEventListener('click', () => next()) ; 
     
     }
-    prev() {
-        
-    }
-
+     prev (titleElement) {
+           
+        }
 }
+
+
 

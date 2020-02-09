@@ -1,68 +1,47 @@
 'use strict';
-let smallHamburgerElement = document.getElementById('small');
-let averageHamburgerElement = document.getElementById('average');
-let bigHamburgerElement = document.getElementById('big');
+let hamburgerElement = document.getElementsByClassName('hamburger');
 let toppingElement = document.getElementById('Topping');
 let priceElement = document.getElementById('price');
 let caloriesElement = document.getElementById('calories');
-let cheeseElement = document.getElementById('cheese');
+let selectedSize;
+let selectedTopping;
 
 
-class Hamburger {
-    constructor (price,calories){
-        this.price = price;
-        this.calories = calories;
-        this.toppings = []; 
-    }
 
-    static cheese = { price: 10, calories: 20 };
-    static salat = { price: 20, calories: 5 };
-    static potato = { price: 15, calories: 10 };
-    static flavoring = { price: 15, calories: 0 };
-    static mayonnaise = { price: 20, calories: 5 };
+const sizes = {
+    'big': { price: 50, calories: 20 },
+    'average': { price: 75, calories: 30 },
+    'small': { price: 50, calories: 20 },
+};
 
-    add(topping) {
-        this.toppings.push(topping);
-    } 
+const toppings = {
+    'cheese' : { price: 10, calories: 20 },
+    'potato' : { price: 15, calories: 10 },
+    'flavoring' : { price: 15, calories: 0 },
+    'mayonnaise' : { price: 20, calories: 5 },
+    'salat' : { price: 20, calories: 5 },
+};
 
+
+hamburgerElement.addEventListener('click', onClick) ;
+
+function onClick(){
+    onDivclick();
+    onSelectChange();
+    renderPrice();
 }
 
-const smallHamburger = new Hamburger('50 ','20 ');
-const averageHamburger = new Hamburger('75 ','30 ');
-const bigHamburger = new Hamburger('100 ','40 '); 
+function onDivclick(e){
+    selectedSize = e.target.dataId;
+} 
 
-smallHamburgerElement.addEventListener('click', onClick) ;
+toppingElement.addEventListener('click', onSelectChange) ;
 
-
-function onClick() {
-    console.log(smallHamburger);
-    priceElement.innerHTML = `Price :  ${smallHamburger.price}`;
-    caloriesElement.innerHTML = `Calories :  ${smallHamburger.calories}`;
+function onSelectChange(e){
+    selectedTopping = e.target.value;
 }
 
-averageHamburgerElement.addEventListener('click', onClick1) ;
-
-
-function onClick1() {
-    console.log(averageHamburger);
-    priceElement.innerHTML = `Price :  ${averageHamburger.price}`;
-    caloriesElement.innerHTML = `Calories :  ${averageHamburger.calories}`;
+function renderPrice(){
+    priceElement.innerHTML = `Price : ${sizes[selectedSize].price + toppings[selectedTopping].price}` ;
+    caloriesElement.innerHTML =`Calories :  ${sizes[selectedSize].calories + toppings[selectedTopping].calories}` ;
 }
-
-bigHamburgerElement.addEventListener('click', onClick2) ;
-
-
-function onClick2() {
-    console.log(bigHamburger);
-    priceElement.innerHTML = `Price :  ${bigHamburger.price}`;
-    caloriesElement.innerHTML = `Calories :  ${bigHamburger.calories}`;
-}
-
-toppingElement.addEventListener('click', onClick3) ;
-
-function onClick3(e) {
-    console.log(e);
-    priceElement.innerHTML = `Price :  ${e.target.price} + ${e.target.price} `;
-    caloriesElement.innerHTML = `Calories :  ${e.target.calories} + ${e.target.calories}`;
-}
-
