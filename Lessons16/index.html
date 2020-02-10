@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  , content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lessons16</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" async></script>
+</head>
+<body>
+    <form id="countForm" class="form" >
+        <input type="text"  id="name" class="form-input"  placeholder="Имя" required >
+        <input type="text"  id="surname"  class="form-input" placeholder="Фамилия" required >
+        <input type="text"  id="email" class="form-input" placeholder="Email" required >
+        <button id="addInfo">Добавить</button>
+    </form>
+    <div class="invalid"></div>
+    <table id="listOfContacts" >
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Email</th>
+            <th>Действие</th>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+
+        <script type="text/template" id="taskItemTemplate">
+            <tr data-id="{{id}}">
+                <td>{{name}}</td>
+                <td>{{surname}}</td>
+                <td>{{email}}</td>
+                <td><span class="delete-btn">Delete</span></td>   
+            </tr>
+        </script>
+    
+
+    
+</body>
+</html>
