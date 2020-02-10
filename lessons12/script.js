@@ -9,7 +9,7 @@ let selectedTopping;
 
 
 const sizes = {
-    'big': { price: 50, calories: 20 },
+    'big': { price: 100, calories: 50 },
     'average': { price: 75, calories: 30 },
     'small': { price: 50, calories: 20 },
 };

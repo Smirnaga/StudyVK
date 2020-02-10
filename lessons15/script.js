@@ -1,51 +1,61 @@
 'use strict';
-let businessElement = document.getElementById('business');
-let albumsElement = document.getElementById('ToDoalbums');
-let photosElement = document.getElementById('ToDophotos');
-let AddToListElement = document.getElementById('AddToList');
-const TODOS_ALBUMS_URL = 'https://jsonplaceholder.typicode.com/albums';
-const TODOS_PHOTOS_URL = 'https://jsonplaceholder.typicode.com/photos?albumId=5';
+let albumsElement = document.getElementById('albums');
+let photosElement = document.getElementById('photos');
+const ALBUMS_URL = 'https://jsonplaceholder.typicode.com/albums';
+const PHOTOS_URL = 'https://jsonplaceholder.typicode.com/photos?albumId={{albumId}}';
+const albumItemTemplate = document.querySelector('#albumItemTemplate')
+    .innerHTML;
+ const photoTemplate = document.querySelector('#photoTemplate')
+    .innerHTML;
+ 
 
+getAlbum();
 
-getTodos();
-
-function getTodos() {
-    fetch(TODOS_ALBUMS_URL)
+function getAlbum() {
+    fetch(ALBUMS_URL)
         .then(response => response.json())
-        .then(renderTodos);
+        .then(renderAlbum);
 }
 
-function renderTodos(list) {
-    list.forEach(AddLi);
+function renderAlbum(list) {
+    list.forEach(createAlbum);
 }
 
 
-function AddLi(task ) {
-    albumsElement.innerHTML += `<li>${task.id}  ${task.title}</li>`;
-};
+function createAlbum(albums) {
+    const html = albumItemTemplate
+        .replace('{{albumId}}', albums.id)
+        .replace('{{title}}', albums.title)
+        .replace('{{titleClass}}', 'album');
+
+    albumsElement.innerHTML += html;
+}
 
 albumsElement.addEventListener('click', ShowPhotos);
 
 function ShowPhotos (e){
     clear();
-    getPhotos();
-    AddLiPhotos();
-   
+    getPhotos(e);
 }
 
-function AddLiPhotos(list) {
-
-    photosElement.innerHTML += `<li>${list.thumbnailUrl}</li>`;
-}
-
-function getPhotos() {
-    fetch(TODOS_PHOTOS_URL)
+function getPhotos(e) {
+    const albumId = e.target.dataset.id;
+    console.log(albumId);
+    fetch(PHOTOS_URL + `?albumId=${albumId}`)
         .then(response => response.json())
-        .then(renderTodos1);
+        .then(addPhotos);
 }
 
-function renderTodos1(list) {
-    list.forEach(AddLiPhotos);
+function addPhotos(list) {
+    list.forEach(createPhoto);
+}
+
+function createPhoto(photoAlbums) {
+    const htmlPhoto = photoTemplate
+    .replace('{{photoClass}}', `photoAlbum`)
+    .replace('{{imgLink}}', photoAlbums.thumbnailUrl);
+
+albumsElement.innerHTML += htmlPhoto;
 }
 
 function clear() {

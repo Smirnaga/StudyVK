@@ -1,34 +1,38 @@
 body {
     margin: 10px;
+    background: grey;
 }
- ul {
-    margin: 20px;
+ div {
+    margin: 5px;
  }
 
- li {
-     font-size: 30px;
+ .album {
+     font-size: 20px;
      color: black;
      padding-bottom: 10px;
-     background: yellow;
+     background: greenyellow;
+    border: 1px solid black;
+    cursor: pointer;
+ }
+
+ .album :hover {
+    border: 3px solid white;
  }
 
 .albums {
-    width: 45%;
+    width: 35%;
     float: left;
 }
 
 .photos {
-    width: 45%;
+    width: 55%;
     float: left;
 }
 
 
-.photos li {
-    background: greenyellow;
-}
-
 h3 {
     font-size: 20px;
-    color: black;
+    color: yellow;
     text-align: center;
+    margin-bottom: 15px;
 }
