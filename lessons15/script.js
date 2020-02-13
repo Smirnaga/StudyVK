@@ -2,7 +2,7 @@
 let albumsElement = document.getElementById('albums');
 let photosElement = document.getElementById('photos');
 const ALBUMS_URL = 'https://jsonplaceholder.typicode.com/albums';
-const PHOTOS_URL = 'https://jsonplaceholder.typicode.com/photos?albumId={{albumId}}';
+const PHOTOS_URL = 'https://jsonplaceholder.typicode.com/photos';
 const albumItemTemplate = document.querySelector('#albumItemTemplate')
     .innerHTML;
  const photoTemplate = document.querySelector('#photoTemplate')
@@ -31,9 +31,9 @@ function createAlbum(albums) {
     albumsElement.innerHTML += html;
 }
 
-albumsElement.addEventListener('click', ShowPhotos);
+albumsElement.addEventListener('click', showPhotos);
 
-function ShowPhotos (e){
+function showPhotos (e){
     clear();
     getPhotos(e);
 }
@@ -55,7 +55,7 @@ function createPhoto(photoAlbums) {
     .replace('{{photoClass}}', `photoAlbum`)
     .replace('{{imgLink}}', photoAlbums.thumbnailUrl);
 
-albumsElement.innerHTML += htmlPhoto;
+    photosElement.innerHTML += htmlPhoto;
 }
 
 function clear() {

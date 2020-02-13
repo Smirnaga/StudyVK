@@ -25,13 +25,20 @@ body {
 }
 
 .photos {
-    width: 55%;
+    width: 60%;
     float: left;
 }
 
 
+img {
+    display: inline-block;
+    padding: 5px;
+}
+
+
 h3 {
-    font-size: 20px;
+    display: block;
+    font-size: 22px;
     color: yellow;
     text-align: center;
     margin-bottom: 15px;
