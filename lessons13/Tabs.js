@@ -81,10 +81,25 @@ class Tabs {
         document.getElementById('next').addEventListener('click', () => next()) ; 
     
     }
-     prev (titleElement) {
-           
+     prev (el) {
+        const titleIndex = Array.prototype.find.call(
+            this.el.children,
+            this.el.querySelector('active'));
+
+            if (titleIndex) {
+                this.hide(titleElement.parentNode);
+            }
+            else {
+                this.show(titleElement.parentNode);
+            }
+    
         }
+
+       
+
+
 }
 
 
 
+ 
