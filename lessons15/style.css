@@ -15,8 +15,9 @@ body {
     cursor: pointer;
  }
 
- .album :hover {
+ .albums :hover {
     border: 3px solid white;
+    background-color: rgb(165, 57, 57);
  }
 
 .albums {
