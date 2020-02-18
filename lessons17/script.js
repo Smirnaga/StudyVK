@@ -11,6 +11,13 @@ const DELETE_BTN_CLASS = 'delete-btn';
 const EDIT_CLASS = 'edit';
 let noteList = [];
 
+init();
+
+function init () {
+    restore ();
+    renderList();
+}
+
 addInfoElement.addEventListener('click', onBtnClick);
 
 function onBtnClick() {
@@ -99,7 +106,7 @@ function onboardElementFocusout(e){
 function updateNote (id,name,value) {
     const stickerNote = noteList.find(el => el.id == id);
 
-    stickerNote(name) = value;
+    stickerNote[name] = value;
     save();
     
 }
