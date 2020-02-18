@@ -8,6 +8,7 @@ body {
 
  .album {
      font-size: 20px;
+     padding-left: 5px;
      color: black;
      padding-bottom: 10px;
      background: greenyellow;
@@ -16,6 +17,8 @@ body {
  }
 
  .albums :hover {
+    font-size: 25px;
+    color: whitesmoke;
     border: 3px solid white;
     background-color: rgb(165, 57, 57);
  }
@@ -26,7 +29,7 @@ body {
 }
 
 .photos {
-    width: 60%;
+    width: 62%;
     float: left;
 }
 

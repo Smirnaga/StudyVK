@@ -1,0 +1,64 @@
+
+button {
+    margin: 10px;
+    background: chartreuse;
+    border:  3px solid white;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+form {
+    background: blue;
+    text-align: right;
+}
+.board {
+    position: absolute;
+    background: yellow;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.sticker {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    height: 200px;
+    background: goldenrod;
+    border-radius: 15px;
+    margin: 10px ;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.loading {
+    background: grey;
+}
+
+.delete-btn {
+    width: 17px;
+    height: 17px;
+    border: 1px solid black;
+    background-color: brown;
+    border-radius: 5px;
+    cursor: pointer;
+}
+ 
+.error {
+    border:  4px solid red;
+}
+
+.invalid {
+    color: red;
+    font-size: 25px;
+    padding-left: 80px;
+}
+
+.edit {
+    padding-top: 18px;
+    width: 140px;
+    color: whitesmoke;
+}
