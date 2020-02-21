@@ -16,6 +16,7 @@ init();
 function init () {
     restore ();
     renderList();
+
 }
 
 addInfoElement.addEventListener('click', onBtnClick);
@@ -108,7 +109,7 @@ function updateNote (id,name,value) {
 
     stickerNote[name] = value;
     save();
-    
+
 }
 
 function renderList() {
@@ -124,6 +125,6 @@ function getNote(sticker) {
     return taskItemTemplate
         .replace('{{id}}', Date.now())
         .replace('{{titleClass}}', 'sticker')
-        .replace('((business))', '');
+        .replace('{{business}}', '');
 
 }

@@ -1,0 +1,60 @@
+body {
+    margin: 10px;
+}
+ ul {
+    margin: 20px;
+ }
+
+ li {
+     padding: 5px;
+     font-size: 30px;
+     color: black;
+     background: yellow;
+     border: 1px solid gray;
+     margin-bottom: 5px;
+     display: flex;
+     justify-content: space-between;
+ }
+
+li.green {
+    padding: 3px;
+    font-size: 20px;
+    background: green;
+    color: white;
+    text-align: center;
+    text-decoration: line-through;
+ }
+
+ li.green span {
+    text-decoration: none;
+}
+
+input {
+    display: block;
+    font-size: 20px;
+    border: 2px solid red;
+    border-radius: 10px;
+    margin: 20px;
+    padding-left: 6px;
+    width: 400px;
+}
+
+
+
+
+#AddToList {
+    border: 2px solid;
+    border-radius: 6px;
+    margin: 20px;
+    padding: 5px 7px;
+    background-color: aqua;
+    cursor: pointer;
+}
+
+span {
+   display: inline-block;
+   font-size: 20px;
+   padding: 5px;
+
+}
+
