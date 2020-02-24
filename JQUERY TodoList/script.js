@@ -1,4 +1,14 @@
 'use strict';
+const LOCALSTORAGE_KEY = 'todos';
+let todos = [];
+
+init();
+
+function init() {
+    restoreState();
+    getTodos();
+}
+
 $(document).ready (function() {
     addEventListenerToAddList();
 });
@@ -27,10 +37,45 @@ $('.ToDoList').on('click','li',function(e){
     return false;
 });
 
+function deleteSticker(id){
+    noteList = noteList.filter(el => el.id !=id);
+    save();
+    deleteNoteElement(id);
+}
+
 $('.ToDoList').on('click','span',function(e){
     const $el = $(e.target);
     if($el.hasClass( "delete-btn" ))
 
     $el.closest( "li" ).remove();
-    
+    saveState();
+
 })
+
+function getTodos(){
+    function getTodos() {
+        restoreState();
+        renderTodos(todos);
+    }
+    
+function renderTodos(data) {
+    $taskList.html(data.map(generateTodoHtml).join('\n'));
+}
+    
+function generateTodoHtml(todo) {
+    return taskItemTemplate
+    .replace('{{id}}', todo.id)
+    .replace('{{title}}', todo.title)
+    .replace('{{completeClass}}', todo.isDone ? 'done' : '');
+}
+}
+
+function saveState() {
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(todos));
+}
+
+function restoreState() {
+    todos = localStorage.getItem(LOCALSTORAGE_KEY);
+
+    todos = todos ? JSON.parse(todos) : [];
+}
