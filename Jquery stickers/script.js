@@ -152,7 +152,7 @@ function getNote(sticker) {
     return taskItemTemplate
         .replace('{{id}}', Date.now())
         .replace('{{titleClass}}', 'sticker')
-        .replace('{{business}}', $('textarea').val());
+        .replace('{{business}}', $('.edit').val());
 
 }
 
