@@ -7,6 +7,7 @@ table {
     margin-left: 7px;
 }
 
+
 td {
     font-size: 15px;
     margin: 20px;
@@ -30,14 +31,9 @@ input {
     border: 2px solid yellowgreen;
     border-radius: 10px;
     margin: 0 49px 15px 45px;
-    width: 103px;
     text-align: center;
 }
 
-#phoneNumber {
-    width: 130px;
-    margin: 2px;
-}
 
 input:focus {
     background: #eaeaea;
@@ -59,22 +55,13 @@ button {
     background: grey;
 }
 
-span {
+#button {
     border: 1px solid black;
     background-color: brown;
     padding: 2px;
     cursor: pointer;
 }
- 
-.error {
-    border:  4px solid red;
-}
 
-.invalid {
-    color: red;
-    font-size: 25px;
-    padding-left: 80px;
-}
 .edit {
     display: block;
     padding: 10px;
@@ -85,11 +72,19 @@ span {
 input {
     display: block;
     padding: 5px;
-    font-size: 15px;
-    color: rgb(187, 16, 16);
+    margin-bottom: 10px;
 }
 
-#date {
-    width: 150px;
-    height: 30px;
+
+
+#ui-id-1 {
+    background: gray;
 }
+
+p {
+    margin-bottom: 15px;
+    color: indianred;
+    font-size: 14px;
+}
+
+

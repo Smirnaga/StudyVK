@@ -6,29 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lessons16</title>
     <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet"href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
     <link rel="stylesheet" href="./style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"defer></script>
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <div id="dialog-form" title="Create new user">
+    <div id="dialog-form" title="Create new user" >
         <p class="validateTips">All form fields are required.</p>
        
-        <form>
+        <form id="contactForm">
           <fieldset>
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-            <label for="suname">Surname</label>
-            <input type="text" name="surname" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+            <input type="text" name="name" id="name"  class="text ui-widget-content ui-corner-all">
+            <label for="surname">Surname</label>
+            <input type="text" name="surname" id="surname" class="text ui-widget-content ui-corner-all">
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
+            <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
             <label for="phone">Phone</label>
-            <input type="phone" name="phone" id="phone" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+            <input type="phone" name="phone" id="phone"  class="text ui-widget-content ui-corner-all">
             <label for="date">Date</label>
-            <input type="date" name="date" id="date" value="yyyy-MM-dd" class="text ui-widget-content ui-corner-all">
-       
-            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="date" name="date" id="date"  class="text ui-widget-content ui-corner-all">
             <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
           </fieldset>
         </form>
@@ -51,13 +50,15 @@
     </table>
 
         <script type="text/template" id="taskItemTemplate">
-            <tr data-id="{{id}}">
+            <tr class="contact-row" data-id="{{id}}">
                 <td>{{name}}</td>
                 <td>{{surname}}</td>
                 <td>{{email}}</td>
                 <td>{{phone}}</td>
                 <td>{{date}}</td>
-                <td><span class="delete-btn">Delete</span></td>   
+                <td><span id="button" class="delete-btn">Delete</span>
+                    <span id="button" class="edit-btn">Edit</span>
+                </td>   
             </tr>
         </script>
     
