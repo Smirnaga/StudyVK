@@ -24,7 +24,7 @@ const $dialog = $('#dialog-form').dialog({
     modal: true,
     buttons: {
         Save: function() {
-            createContact();
+            saveContact();
             $dialog.dialog('close');
             
         },
