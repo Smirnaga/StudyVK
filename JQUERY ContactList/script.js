@@ -19,8 +19,8 @@ const EMPTY_CONTACT = {
 
 const $dialog = $('#dialog-form').dialog({
     autoOpen: false,
-    height: 100,
-    width: 150,
+    height: 450,
+    width: 550,
     modal: true,
     buttons: {
         Save: function() {
@@ -113,13 +113,9 @@ function getContactHtml(contact) {
         .replace('{{surname}}', contact.surname)
         .replace('{{email}}', contact.email)
         .replace('{{phone}}', contact.phone)
-        .replace('{{date}}', formatDate(contact.date));
+        .replace('{{date}}', contact.date);
 }
 
-function formatDate(date) {
-    date = new Date(date);
-    return date.getDate() + '/' + date.getMonth() + '/' + date.getYear();
-}
 
 
 function getEmptyContact() {
