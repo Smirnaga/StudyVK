@@ -1,1 +1,2 @@
-console.log('app.js')
+console.log('app.js');
+const a = '34';
