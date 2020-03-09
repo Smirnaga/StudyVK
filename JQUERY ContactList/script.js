@@ -166,7 +166,7 @@ function updateContact(contact) {
     });
 
     list = list.map(item => (item.id == contact.id ? contact : item));
-    getContactElement(contact.id).replaceWith(getContactHtml(contact));
+    getContactElement(item.id).replaceWith(getContactHtml(contact));
 }
 
 function createContact(contact) {
