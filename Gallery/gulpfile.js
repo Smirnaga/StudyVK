@@ -1,4 +1,5 @@
 const {series,src,dest} = require('gulp');
+const concat = require('gulp-concat');
 
 function defaultTask(cb){
     console.log('Gulp is running');
@@ -9,9 +10,11 @@ function html() {
     return src('./src/index.html').pipe(dest('./dist'));
 }
 
-function scripts(cb){
+function scripts(){
     console.log('scripts is running');
-    cb();
+    return src('./src/**/*.js')
+        .pipe(concat('all.js'))
+        .pipe(dest('./dist'));
 }
 function styles(cb){
     console.log('styles is running');
