@@ -21,6 +21,8 @@
     "node-sass": "^4.13.1"
   },
   "dependencies": {
+    "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1",
     "sass": "^1.26.2"
   }
 }

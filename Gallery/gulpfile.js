@@ -13,6 +13,14 @@ function html() {
     return src('./src/index.html').pipe(dest('./dist'));
 }
 
+function vendorsJS() {
+    return src([
+        './node_modules/jquery/dist/jquery.js',
+        './node_modules/jquery/dist/jquery.js'])
+        .pipe(concat('vendors.js'))
+        .pipe(dest('./dist'));
+}
+
 function scripts(){
     console.log('scripts is running');
     return src('./src/**/*.js')
@@ -39,9 +47,12 @@ function serve() {
             baseDir: './dist'
         }
     });
+
+    watch('./src/**/*.js', series(scripts, browserSync.reload));
+    watch('./src/**/*.sass', series(styles, browserSync.reload));
 }
 
-const build = series(html, scripts, styles);
+const build = series(html, scripts, styles,vendorsJS);
 
 module.exports = {
     default: defaultTask,
