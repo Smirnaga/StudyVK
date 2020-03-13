@@ -3,6 +3,7 @@ const concat = require('gulp-concat');
 const babel = require("gulp-babel");
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
+const inject = require('gulp-inject');
 
 function defaultTask(cb){
     console.log('Gulp is running');
@@ -10,13 +11,17 @@ function defaultTask(cb){
 }
 function html() {
     console.log('building html');
-    return src('./src/index.html').pipe(dest('./dist'));
+    return src('./src/index.html')
+        .pipe(inject(src(['./dist/**/*.js', './dist/**/*.css'], {read: false})))
+        .pipe(dest('./dist'));
+
 }
+
 
 function vendorsJS() {
     return src([
         './node_modules/jquery/dist/jquery.js',
-        './node_modules/jquery/dist/jquery.js'])
+        './node_modules/jquery-ui'])
         .pipe(concat('vendors.js'))
         .pipe(dest('./dist'));
 }

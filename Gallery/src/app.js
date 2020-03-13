@@ -1,2 +1,3 @@
-console.log('app.js');
-const a = '34';
+$(() => {
+    console.log('fdfdfdf');
+});
