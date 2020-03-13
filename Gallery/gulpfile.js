@@ -2,6 +2,7 @@ const {series,src,dest,watch} = require('gulp');
 const concat = require('gulp-concat');
 const babel = require("gulp-babel");
 const sass = require('gulp-sass');
+const browserSync = require('browser-sync').create();
 
 function defaultTask(cb){
     console.log('Gulp is running');
@@ -32,10 +33,19 @@ function watchFiles() {
     watch('./src/**/*.sass', styles);
 }
 
+function serve() {
+    browserSync.init({
+        server: {
+            baseDir: './dist'
+        }
+    });
+}
 
+const build = series(html, scripts, styles);
 
 module.exports = {
     default: defaultTask,
-    build: series(html,scripts,styles),
-    dev: series(html,scripts,styles,watchFiles)
-}
+    build: build,
+    dev: series(build,watchFiles),
+    serve: series(build, serve)
+};
