@@ -6,7 +6,6 @@ const browserSync = require('browser-sync').create();
 const inject = require('gulp-inject');
 const sourcemaps = require('gulp-sourcemaps');
 
-/* const sourcemaps = require('gulp-sourcemaps'); */
 
 function defaultTask(cb){
     console.log('Gulp is running');
@@ -22,7 +21,6 @@ function html() {
 function vendorsJS() {
     return src([
         './node_modules/jquery/dist/jquery.js',
-        './node_modules/jquery-ui',
         './src/jquery.fancybox.min.js'])
         .pipe(concat('vendors.js'))
         .pipe(dest('./dist'));
