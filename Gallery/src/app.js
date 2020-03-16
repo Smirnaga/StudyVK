@@ -23,9 +23,4 @@ $(() => {
             .replace('{{title}}', image.title);
     }
 
-    function initGallery() {
-        $gallery.find('a').simpleLightbox({
-            fileExt: false
-        });
-    }
 });
