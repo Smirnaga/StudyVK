@@ -4,6 +4,9 @@ const babel = require("gulp-babel");
 const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
 const inject = require('gulp-inject');
+const sourcemaps = require('gulp-sourcemaps');
+
+/* const sourcemaps = require('gulp-sourcemaps'); */
 
 function defaultTask(cb){
     console.log('Gulp is running');
@@ -11,9 +14,7 @@ function defaultTask(cb){
 }
 function html() {
     console.log('building html');
-    return src('./src/index.html')
-        .pipe(inject(src(['./dist/**/*.js', './dist/**/*.css'], {read: false})))
-        .pipe(dest('./dist'));
+    return src('./src/index.html').pipe(dest('./dist'));
 
 }
 
@@ -21,16 +22,25 @@ function html() {
 function vendorsJS() {
     return src([
         './node_modules/jquery/dist/jquery.js',
-        './node_modules/jquery-ui'])
+        './node_modules/jquery-ui',
+        './src/jquery.fancybox.min.js'])
         .pipe(concat('vendors.js'))
+        .pipe(dest('./dist'));
+}
+
+function vendorsCSS() {
+    return src(['./src/jquery.fancybox.min.css'])
+        .pipe(concat('vendors.css'))
         .pipe(dest('./dist'));
 }
 
 function scripts(){
     console.log('scripts is running');
     return src('./src/**/*.js')
+        .pipe(sourcemaps.init())
         .pipe(babel())
         .pipe(concat('all.js'))
+        .pipe(sourcemaps.write('./'))
         .pipe(dest('./dist'));
         
 }
@@ -38,6 +48,35 @@ function styles() {
     console.log('building styles');
     return src('./src/styles.sass')
         .pipe(sass())
+        .pipe(dest('./dist'))
+        .pipe(browserSync.stream({ match: '**/*.css' }));
+}
+
+function injectFiles() {
+    const sources = src(
+        [
+            './dist/vendors.js',
+            './dist/all.js',
+            './dist/vendors.css',
+            './dist/styles.css'
+        ],
+        {
+            read: false
+        }
+    );
+
+    return src('./dist/index.html')
+        .pipe(
+            inject(sources, {
+                relative: true,
+                transform: function(path) {
+                    if (path.endsWith('.js')) {
+                        return `<script src="${path}" defer></script>`;
+                    }
+                    return inject.transform(...arguments);
+                }
+            })
+        )
         .pipe(dest('./dist'));
 }
 
@@ -46,6 +85,8 @@ function watchFiles() {
     watch('./src/**/*.sass', styles);
 }
 
+
+
 function serve() {
     browserSync.init({
         server: {
@@ -53,11 +94,17 @@ function serve() {
         }
     });
 
-    watch('./src/**/*.js', series(scripts, browserSync.reload));
-    watch('./src/**/*.sass', series(styles, browserSync.reload));
+    watch(
+        './src/**/*.js',
+        series(html, scripts, injectFiles, cb => {
+            browserSync.reload();
+            cb();
+        })
+    );
+    watch('./src/**/*.sass', styles);
 }
 
-const build = series(html, scripts, styles,vendorsJS);
+const build = series(html, scripts, styles,vendorsJS,vendorsCSS,injectFiles);
 
 module.exports = {
     default: defaultTask,
