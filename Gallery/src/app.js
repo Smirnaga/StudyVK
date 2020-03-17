@@ -2,8 +2,9 @@ $(() => {
     console.log('fdfdfdf');
 });
 
-$(() => {
+ $(() => {
     const imageTemplate = $('#imageTemplate').html();
+    const $gallery = $('#gallery');
     
 
     API.getPhotos().then(setGallery);

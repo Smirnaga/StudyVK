@@ -21,6 +21,7 @@
     "node-sass": "^4.13.1"
   },
   "dependencies": {
+    "common-js": "^0.3.8",
     "gallery": "^1.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "jquery": "^3.4.1",
