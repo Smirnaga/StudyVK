@@ -1,3 +1,30 @@
-import {say} from './api'
+import {API} from './api';
+import  './api';
+import  './jquery.fancybox';
+import  './jquery.fancybox.min.css';
 
-say('Kirill');
+
+
+ $(() => {
+    const imageTemplate = $('#imageTemplate').html();
+    const $gallery = $('#gallery');
+    
+
+    API.getPhotos().then(setGallery);
+
+    function setGallery(imagesArray) {
+        renderImages(imagesArray);
+    }
+
+    function renderImages(images) {
+        $gallery.html(images.map(getImageHtml).join('\n'));
+    }
+
+    function getImageHtml(image) {
+        return imageTemplate
+            .replace('{{url}}', image.url)
+            .replace('{{thumbnailUrl}}', image.thumbnailUrl)
+            .replace('{{title}}', image.title);
+    }
+
+});
