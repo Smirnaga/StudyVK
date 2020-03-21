@@ -2,6 +2,7 @@ import $ from 'jquery';
 import API from './api';
 require('imports-loader?jQuery=jquery!./jquery.fancybox.js');
 import  './jquery.fancybox.min.css';
+import  './style.css';
 
 
 
