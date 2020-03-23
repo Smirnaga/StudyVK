@@ -12,9 +12,14 @@
 
 }
 
+.row {
+    padding-left: 100px;
+}
 .ten input {
     width: 800px;
     display: inline-block;
+    margin-bottom: 20px;
+    
 }
 
 .two input {
