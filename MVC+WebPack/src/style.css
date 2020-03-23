@@ -9,4 +9,14 @@
     color: black;
     padding-bottom: 10px;
     background: yellow;
+
+}
+
+.ten input {
+    width: 800px;
+    display: inline-block;
+}
+
+.two input {
+    display: inline-block;
 }
