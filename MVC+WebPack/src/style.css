@@ -1,0 +1,12 @@
+.done {
+    font-size: 20px;
+    background: green;
+    color: white;
+ }
+
+ li {
+    font-size: 30px;
+    color: black;
+    padding-bottom: 10px;
+    background: yellow;
+}
