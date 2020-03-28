@@ -1,6 +1,6 @@
 import Collection from '../model/collection';
 import { CONTACT_URL } from '../config';
-import ContactView from '../view/List';
+import ContactView from '../view/View';
 
 
 export default class Controller {
@@ -11,10 +11,13 @@ export default class Controller {
                 this.collection.delete(id).then(() => this.renderData());
             },
             onEdit: id => {
-                this.collection
-                    .get(id)
-                    .edit(id)
-                    .then(() => this.renderData());
+               const model = this.collection.get(id);
+
+               this.contactView.fillForm(model);
+
+            },
+            onSave: data => {
+                this.collection.add(data).then(() => this.renderData());
             }
         });
 
