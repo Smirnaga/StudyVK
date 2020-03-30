@@ -30,17 +30,4 @@ export default class ContactModel {
             method: 'DELETE'
         });
     }
-
-    /* edit() {
-        this.completed = !this.completed;
-
-        return fetch(`${this.url}/${this.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this)
-        });
-        console.log('model edit', this.id);
-    } */
 }

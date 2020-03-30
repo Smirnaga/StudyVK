@@ -26,13 +26,53 @@ export default class ContactView {
         return createElementFromHtml(viewTemplate);
     } 
 
-    fillForm(user) {
+    fillForm(item) {
         Array.prototype.forEach.call(this.inputs, (input) => {
-            input.value = user[input.name]
+            input.value = item[input.name]
         });
     }
 
-    onListClick(e) {
+
+
+    submitUser() {
+        const user = this.getFormData();
+    
+        if (user.id) {
+          this.updateUser(user);
+        } else {
+          this.createUser(user);
+        }
+      }
+    
+      updateUser(user) {
+        return fetch(`${CONTACT_URL}/${user.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(user)
+        });
+      }
+      createUser() {
+        const user = {
+          name: nameInput.value,
+          surname: surnameInput.value,
+          email: emailInput.value,
+        };
+        return user;
+      }
+    
+      getFormData() {
+        const user = {
+          name: nameInput.value,
+          surname: surnameInput.value,
+          email: emailInput.value,
+          id: idInput.value
+        };
+        return user;
+      }
+
+      onListClick(e) {
         console.log(e, this);
         switch (true) {
             case e.target.classList.contains('delete-btn'):
@@ -43,8 +83,6 @@ export default class ContactView {
                 break;
         } 
     }
-
-
     
 
     render(data) {

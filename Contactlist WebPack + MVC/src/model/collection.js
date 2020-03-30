@@ -33,10 +33,10 @@ import ContactModel from "./model";
             body: JSON.stringify(data)
           })
             .then(response => response.json())
-            .then(data => this.list.push(new UserModel(CONTACT_URL, data)));
+            .then(data => this.list.push(new ContactModel(data)));
         }
         updateUser(user) {
-          return fetch(`${this.url}/${user.id}`, {
+          return fetch(`${CONTACT_URL}/${user.id}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json"
