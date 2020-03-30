@@ -23,27 +23,6 @@ import ContactModel from "./model";
           const model = this.get(id);
           return model.delete().then(() => this.list.filter(user => user !== model));
         }
-      
-        add(data) {
-          return fetch(`${CONTACT_URL}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-          })
-            .then(response => response.json())
-            .then(data => this.list.push(new ContactModel(data)));
-        }
-        updateUser(user) {
-          return fetch(`${CONTACT_URL}/${user.id}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-          });
-        }
       }
    
 

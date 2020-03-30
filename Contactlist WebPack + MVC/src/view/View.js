@@ -44,15 +44,6 @@ export default class ContactView {
         }
       }
     
-      updateUser(user) {
-        return fetch(`${CONTACT_URL}/${user.id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(user)
-        });
-      }
       createUser() {
         const user = {
           name: nameInput.value,
@@ -78,7 +69,7 @@ export default class ContactView {
             case e.target.classList.contains('delete-btn'):
                 this.config.onDelete(e.target.closest('.user-item').dataset.id);
                 break;
-            case e.target.classList.contains('edit-item'):
+            case e.target.classList.contains('edit-btn'):
                 this.config.onEdit(e.target.closest('.user-item').dataset.id);
                 break;
         } 
