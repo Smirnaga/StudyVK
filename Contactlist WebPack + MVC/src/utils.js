@@ -1,4 +1,7 @@
-export function createElementFromHtml(html) {
-    document.querySelector('#root').insertAdjacentHTML('afterbegin',html);
-}  
+export default function createElementFromHtml(html) {
+    const template = document.createElement("template");
+    html = html.trim();
+    template.innerHTML = html;
+    return template.content;
+  }
 

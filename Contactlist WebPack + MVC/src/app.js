@@ -1,5 +1,5 @@
 
-import Controller from './controller/controller';
+import Controller from './controller/Controller';
 
 new Controller();
 

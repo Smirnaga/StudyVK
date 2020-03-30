@@ -8,16 +8,20 @@ export default class Controller {
         this.collection = new Collection(CONTACT_URL);
         this.contactView = new ContactView({
             onDelete: id => {
-                this.collection.delete(id).then(() => this.renderData());
+                this.collection.delete(id).then(() => this.refreshData());
             },
             onEdit: id => {
-               const model = this.collection.get(id);
-
-               this.contactView.fillForm(model);
+                const model = this.collection.get(id);
+                this.contactView.fillForm(model);
 
             },
-            onSave: data => {
-                this.collection.add(data).then(() => this.renderData());
+            onSave: () => {
+                const model = this.contactView.getFormData();
+                if (model.id == "") {
+                  this.collection.add(this.contactView.createUser()).then(() => this.refreshData());
+                } else {
+                  this.collection.updateUser(model).then(() => this.refreshData());
+                }
             }
         });
 
@@ -35,6 +39,5 @@ export default class Controller {
 
     renderData() {
         this.contactView.render(this.collection.list);
-        console.log(this.collection.list);
     }
 }

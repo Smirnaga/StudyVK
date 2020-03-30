@@ -1,18 +1,18 @@
-import '../style.css';
-import {itemTemplate,viewTemplate} from '../template'; 
-import {createElementFromHtml} from '../utils'; 
+import '../style.css'; 
+import {viewTemplate,itemTemplate} from '../template'; 
+import createElementFromHtml from '../utils'; 
 
 export default class ContactView {
     constructor(config) {
-        this.el = this.createElement();
         this.config = config; // {onDelete: () => {}}
-
+        this.el = this.createElement(); 
+       
         this.el.addEventListener('submit',this.onFormSubmit.bind(this));
 
         this.list = this.el.querySelector('tbody'); 
 
         this.list.addEventListener('click',this.onListClick.bind(this));
-        this.inputs =  this.el.querySelectorAll('input');
+        this.inputs =  this.el.querySelectorAll('input');  
 
     }
 
@@ -24,7 +24,7 @@ export default class ContactView {
 
     createElement() {
         return createElementFromHtml(viewTemplate);
-    }
+    } 
 
     fillForm(user) {
         Array.prototype.forEach.call(this.inputs, (input) => {
@@ -48,7 +48,7 @@ export default class ContactView {
     
 
     render(data) {
-        this.el.innerHTML = data.map(this.renderItem).join('\n');
+        this.list.innerHTML = data.map(this.renderItem).join('\n');
     }
 
     renderItem(user) {

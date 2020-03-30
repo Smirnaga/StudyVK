@@ -1,3 +1,4 @@
+import { CONTACT_URL } from "../config";
 
 let urlWeakMap = new WeakMap();
 
@@ -5,6 +6,8 @@ export default class ContactModel {
     get url() {
         return urlWeakMap.get(this);
     }
+
+
 
     set url(val) {
         urlWeakMap.set(this, val);
