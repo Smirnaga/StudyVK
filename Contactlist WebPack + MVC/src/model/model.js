@@ -39,7 +39,7 @@ export default class ContactModel {
           body: JSON.stringify(user)
         });
       }
-      add(data) {
+    add(data) {
         return fetch(`${this.url}`, {
           method: "POST",
           headers: {

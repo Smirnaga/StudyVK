@@ -7,7 +7,7 @@ export default class ContactView {
         this.config = config; // {onDelete: () => {}}
         this.el = this.createElement(); 
        
-        this.el.addEventListener('submit',this.onFormSubmit.bind(this));
+        addEventListener('submit',this.onFormSubmit.bind(this));
 
         this.list = this.el.querySelector('tbody'); 
 
@@ -15,13 +15,14 @@ export default class ContactView {
         this.inputs =  this.el.querySelectorAll('input');  
 
     }
-
+    
     onFormSubmit(e) {
         e.preventDefault();
 
         this.config.onSave();
+       
     }
-
+    
     createElement() {
         return createElementFromHtml(viewTemplate);
     } 
@@ -48,7 +49,7 @@ export default class ContactView {
         const user = {
           name: nameInput.value,
           surname: surnameInput.value,
-          email: emailInput.value,
+          email: emailInput.value
         };
         return user;
       }

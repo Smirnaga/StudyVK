@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+  <form class="publish">
+    <input type="text" class="name" placeholder = "Enter your name" name="name">
+    <input type="text" class="message" placeholder = "Your message"  name="message">
+    <input type="submit" class="sendButton" value="Отправить">
+    <input type="submit" class="clearButton" value="Очистить">
+  </form>
+  <p>Users connected: <span id = "connected">0
+  </span></p>
+  <div id="messages" class= 'chat' ></div>
+
+
+  <template id="messageTemplate">
+    <div class="logo">{{logo}}</div>
+    <div class="messageItem">
+        <div class="messageAuthor">{{name}}</div>
+        <div class="messageText {{view}}">{{text}}</div>     
+        <div class="time">{{time}}</div>     
+    </div>
+</template>
+</body>
+</html>
