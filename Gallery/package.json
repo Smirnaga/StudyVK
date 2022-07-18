@@ -25,7 +25,7 @@
     "gallery": "^1.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "jquery": "^3.4.1",
-    "jquery-ui": "^1.12.1",
+    "jquery-ui": "^1.13.2",
     "sass": "^1.26.2"
   }
 }
